@@ -6,13 +6,7 @@ const { getConnection } = require('./mongoMockConnection');
 const { getAllTasksModel } = require('../../models');
 
 describe('List all tasks stored in the database', function () {
-  let connectionMock;
-//   const payloadMovie = {
-//     _id: '620bfe792478a3ef3f2ee977',
-//     name: 'Teste',
-//     createdAt: '2022-01-01T03:00:00.000Z',
-//     status: 'pendente',
-//   };
+    let connectionMock;
 
       before(async function () {
         connectionMock = await getConnection();
@@ -20,7 +14,6 @@ describe('List all tasks stored in the database', function () {
       });
 
       after(async function () {
-        // await connectionMock.db('desafioEbytr').collection('tasks').drop();
         MongoClient.connect.restore();
       });
 
