@@ -13,6 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 // Endpoint que retorna todas as tarefas do banco de dados
+// app.get('/', (req, res) => res.send('Hello World'));
 app.get('/', getAllTasksController);
 
 app.listen(PORT, () => console.log(`Example app listening on PORT ${PORT}!`));
