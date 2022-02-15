@@ -7,7 +7,8 @@ const cors = require('cors');
 const {
     getAllTasksController,
     createTaskController,
-    removeTaskController, 
+    removeTaskController,
+    updateTaskController, 
 } = require('./controllers');
 require('dotenv').config({ path: './config.env' });
 
@@ -16,7 +17,10 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// Remove, através do id, uma tarefa do banco de dados
+// Atualiza os dados de uma tarefa do banco de dados
+app.put('/:id', updateTaskController);
+
+// Remove uma tarefa do banco de dados
 app.delete('/:id', removeTaskController);
 
 // Retorna todas as tarefas do banco de dados

@@ -16,15 +16,15 @@ describe('Add new task to the database', function () {
       status: 'pendente',
   };
 
-      before(async function () {
-        connectionMock = await getConnection();
-        sinon.stub(MongoClient, 'connect').resolves(connectionMock);
-      });
+  before(async function () {
+    connectionMock = await getConnection();
+    sinon.stub(MongoClient, 'connect').resolves(connectionMock);
+  });
 
-      after(async function () {
-        await connectionMock.db('desafioEbytr').collection('tasks').drop();
-        MongoClient.connect.restore();
-      });
+  after(async function () {
+    await connectionMock.db('desafioEbytr').collection('tasks').drop();
+    MongoClient.connect.restore();
+  });
 
   describe('when the request is successfull', function () {
     it('the task is inserted in the database', async function () {
