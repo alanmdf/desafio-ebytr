@@ -27,7 +27,7 @@ describe('Add new task to the database', function () {
       });
 
   describe('when the request is successfull', function () {
-    it('the task is successfully inserted in the database', async function () {
+    it('the task is inserted in the database', async function () {
       const response = await createTaskModel(newTask);
 
       const taskCreated = await connectionMock
