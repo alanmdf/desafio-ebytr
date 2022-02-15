@@ -4,6 +4,7 @@ const express = require('express');
 
 const app = express();
 const cors = require('cors');
+const { getAllTasksController } = require('./controllers');
 require('dotenv').config({ path: './config.env' });
 
 const PORT = process.env.PORT || 5000;
@@ -11,6 +12,7 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-app.get('/', (req, res) => res.send('Hello World!'));
+// Endpoint que retorna todas as tarefas do banco de dados
+app.get('/', getAllTasksController);
 
 app.listen(PORT, () => console.log(`Example app listening on PORT ${PORT}!`));
