@@ -3,7 +3,6 @@
 /* eslint-disable no-underscore-dangle */
 import React, { useEffect, useState } from 'react';
 import Task from './Task';
-// import Task from './Task';
 
 function TasksList() {
   const [tasks, setTasks] = useState([]);

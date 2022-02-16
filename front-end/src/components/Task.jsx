@@ -4,6 +4,13 @@
 import React from 'react';
 
 function Task({ taskInfo }) {
+  const handleClick = (id) => {
+    const initOptions = {
+      method: 'DELETE',
+    };
+    fetch(`http://localhost:3001/${id}`, initOptions);
+  };
+
   return (
     <tr className="task">
       {Object.values(taskInfo)
@@ -13,7 +20,7 @@ function Task({ taskInfo }) {
         <button type="button">Editar</button>
       </td>
       <td>
-        <button type="button">Excluir</button>
+        <button type="button" onClick={() => handleClick(taskInfo._id)}>Excluir</button>
       </td>
     </tr>
   );
