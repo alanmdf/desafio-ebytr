@@ -1,9 +1,9 @@
-/* eslint-disable react/no-array-index-key */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Task({ taskInfo }) {
+  const [tasksValues, setTasksValues] = useState([]);
   const handleClick = async (id) => {
     const initOptions = {
       method: 'DELETE',
@@ -11,11 +11,15 @@ function Task({ taskInfo }) {
     await fetch(`http://localhost:3001/${id}`, initOptions);
   };
 
+  useEffect(() => {
+    setTasksValues(Object.values(taskInfo));
+  }, []);
+
   return (
     <tr className="task">
-      {Object.values(taskInfo)
+      {tasksValues
         .filter((info) => info !== taskInfo._id)
-        .map((info, index) => <td key={index}>{info}</td>)}
+        .map((info) => <td key={Math.random()}>{info}</td>)}
       <td>
         <button type="button">Editar</button>
       </td>
