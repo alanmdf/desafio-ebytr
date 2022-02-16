@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable max-len */
 /* eslint-disable no-underscore-dangle */
 import React, { useEffect, useState } from 'react';
@@ -19,11 +20,11 @@ function TasksList() {
     <table className="tasks-list">
       <thead>
         <tr>
-          {tableHeaders.map((header) => <th>{header}</th>)}
+          {tableHeaders.map((header, index) => <th key={index}>{header}</th>)}
         </tr>
       </thead>
       <tbody>
-        {tasks.map((task) => (<Task key={task._id} taskInfo={task} />
+        {tasks.map((task, index) => (<Task key={index} taskInfo={task} />
         ))}
       </tbody>
     </table>
