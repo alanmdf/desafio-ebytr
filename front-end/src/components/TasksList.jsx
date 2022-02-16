@@ -1,9 +1,13 @@
+/* eslint-disable max-len */
 /* eslint-disable no-underscore-dangle */
 import React, { useEffect, useState } from 'react';
 import Task from './Task';
+// import Task from './Task';
 
 function TasksList() {
   const [tasks, setTasks] = useState([]);
+
+  const tableHeaders = ['Nome', 'Data de criação', 'Status'];
 
   useEffect(async () => {
     fetch('http://localhost:3001')
@@ -12,9 +16,17 @@ function TasksList() {
   }, []);
 
   return (
-    <section>
-      {tasks.map((task) => <Task key={task._id} taskInfo={task} />)}
-    </section>
+    <table className="tasks-list">
+      <thead>
+        <tr>
+          {tableHeaders.map((header) => <th>{header}</th>)}
+        </tr>
+      </thead>
+      <tbody>
+        {tasks.map((task) => (<Task key={task._id} taskInfo={task} />
+        ))}
+      </tbody>
+    </table>
   );
 }
 

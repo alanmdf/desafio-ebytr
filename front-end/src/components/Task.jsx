@@ -1,18 +1,16 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable react/prop-types */
 import React from 'react';
 
 function Task({ taskInfo }) {
-  const {
-    _id: id, name, createdAt, updatedAt, status,
-  } = taskInfo;
   return (
-    <div>
-      <span>{id}</span>
-      <span>{name}</span>
-      <span>{createdAt}</span>
-      <span>{updatedAt}</span>
-      <span>{status}</span>
-    </div>
+    <tr className="task">
+      {Object.values(taskInfo)
+        .filter((info) => info !== taskInfo._id)
+        .map((info) => <td>{info}</td>)}
+      <button type="button">Editar</button>
+      <button type="button">Excluir</button>
+    </tr>
   );
 }
 
