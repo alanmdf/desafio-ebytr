@@ -1,4 +1,4 @@
-const createTaskModel = require('../models/createTask.model');
+const { createTaskModel } = require('../models');
 
 module.exports = async (newTask) => {
     const insertedId = await createTaskModel(newTask);

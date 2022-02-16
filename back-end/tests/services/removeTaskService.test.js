@@ -12,7 +12,9 @@ describe('Remove Task Service: Remove task from database', function () {
         const removeTaskModelStub = sinon.stub().resolves(DELETED_COUNT);
 
         const removeTaskService = proxyquire('../../services/removeTask.service', {
-            '../models/removeTask.model': removeTaskModelStub,
+            '../models': {
+                removeTaskModel: removeTaskModelStub,
+            },
         });
 
         it('returns "deletedCount" with value "1"', async function () {

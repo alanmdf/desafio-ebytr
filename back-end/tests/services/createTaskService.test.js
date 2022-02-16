@@ -18,7 +18,9 @@ describe('Create Task Service: Add new task to the database', function () {
         const createTaskModelStub = sinon.stub().resolves(RANDOM_ID);
 
         const createTaskService = proxyquire('../../services/createTask.service', {
-            '../models/createTask.model': createTaskModelStub,
+            '../models/': {
+                createTaskModel: createTaskModelStub,
+            },
         });
         
         it('returns the task ID', async function () {

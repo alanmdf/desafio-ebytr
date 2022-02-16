@@ -1,4 +1,4 @@
-const removeTaskModel = require('../models/removeTask.model');
+const { removeTaskModel } = require('../models');
 
 module.exports = async (id) => {
     const deletedCount = await removeTaskModel(id);

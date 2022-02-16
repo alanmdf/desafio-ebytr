@@ -25,7 +25,9 @@ describe('Get All Tasks Service: List all tasks stored in the database', functio
         const getAllTasksModelStub = sinon.stub().resolves(tasksList);
 
         const getAllTasksService = proxyquire('../../services/getAllTasks.service', {
-            '../models/getAllTasks.model': getAllTasksModelStub,
+            '../models/': {
+                getAllTasksModel: getAllTasksModelStub,
+            },
         });
 
         it('returns an array', async function () {
@@ -35,10 +37,8 @@ describe('Get All Tasks Service: List all tasks stored in the database', functio
 
         it('every array item is a document with the specified properties', async function () {
             const response = await getAllTasksService();
-            // console.log('🚀 ~ file: getAllTasksService.test.js ~ line 38 ~ response', response);
     
             response.forEach((document) => {
-                console.log(document);
                 expect(document).to.have.property('_id');
                 expect(document).to.have.property('name');
                 expect(document).to.have.property('createdAt');
