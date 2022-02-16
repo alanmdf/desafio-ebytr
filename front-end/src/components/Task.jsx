@@ -4,11 +4,11 @@
 import React from 'react';
 
 function Task({ taskInfo }) {
-  const handleClick = (id) => {
+  const handleClick = async (id) => {
     const initOptions = {
       method: 'DELETE',
     };
-    fetch(`http://localhost:3001/${id}`, initOptions);
+    await fetch(`http://localhost:3001/${id}`, initOptions);
   };
 
   return (

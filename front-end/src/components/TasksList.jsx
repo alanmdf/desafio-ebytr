@@ -15,6 +15,11 @@ function TasksList() {
       .then((tasksList) => setTasks(tasksList));
   }, [tasks]);
 
+  const formatDate = (task) => ({
+    ...task,
+    createdAt: task.createdAt.substring(0, 10).split('-').reverse().join('/'),
+  });
+
   return (
     <table className="tasks-list">
       <thead>
@@ -23,8 +28,10 @@ function TasksList() {
         </tr>
       </thead>
       <tbody>
-        {tasks.map((task, index) => (<Task key={index} taskInfo={task} />
-        ))}
+        {tasks
+          .map(formatDate)
+          .map((task, index) => (<Task key={index} taskInfo={task} />
+          ))}
       </tbody>
     </table>
   );
