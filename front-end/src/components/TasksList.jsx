@@ -14,7 +14,7 @@ function TasksList() {
     fetch('http://localhost:3001')
       .then((response) => response.json())
       .then((tasksList) => setTasks(tasksList));
-  }, []);
+  }, [tasks]);
 
   return (
     <table className="tasks-list">

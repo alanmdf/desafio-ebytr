@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 function NewTaskForm() {
   const [newTask, setNewTask] = useState({
     name: '',
-    status: '',
+    status: 'Pendente',
     createdAt: '',
   });
 
@@ -16,11 +16,16 @@ function NewTaskForm() {
 
   const handleClick = () => {
     const getDate = new Date().toISOString();
+    const { name, status } = newTask;
     const initOptions = {
       method: 'POST',
-      body: {
-        ...newTask,
+      body: JSON.stringify({
+        name,
         createdAt: getDate,
+        status,
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
       },
     };
     fetch('http://localhost:3001', initOptions);
