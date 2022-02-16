@@ -8,7 +8,7 @@ const { createTaskModel } = require('../../models');
 
 const currentDate = new Date().toISOString();
 
-describe('Add new task to the database', function () {
+describe('Create Task Model: Add new task to the database', function () {
   let connectionMock;
   const newTask = {
       name: 'Teste',

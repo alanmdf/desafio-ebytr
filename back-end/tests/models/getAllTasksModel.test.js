@@ -5,7 +5,7 @@ const { getConnection } = require('./mongoMockConnection');
 
 const { getAllTasksModel } = require('../../models');
 
-describe('List all tasks stored in the database', function () {
+describe('Get All Tasks Model: List all tasks stored in the database', function () {
     let connectionMock;
 
       before(async function () {

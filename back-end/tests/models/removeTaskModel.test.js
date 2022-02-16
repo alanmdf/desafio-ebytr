@@ -9,7 +9,7 @@ const { removeTaskModel, createTaskModel } = require('../../models');
 const currentDate = new Date().toISOString();
 const randomId = ObjectId();
 
-describe('Remove task', function () {
+describe('Remove Task Model: Remove task', function () {
     let connectionMock;
     const newTask = {
       name: 'Teste',

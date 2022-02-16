@@ -1,4 +1,4 @@
-const { updateTaskModel } = require('../models');
+const updateTaskModel = require('../models/updateTask.model');
 
 module.exports = async (id, updateInfo) => {
     const modifiedCount = await updateTaskModel(id, updateInfo);
