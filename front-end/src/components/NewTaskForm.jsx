@@ -31,6 +31,7 @@ function NewTaskForm(props) {
       },
     };
     await fetch('http://localhost:3001', initOptions);
+    setNewTask((prevState) => ({ ...prevState, name: '', status: 'Pendente' }));
     setReloadList((prevState) => !prevState);
   };
 
@@ -41,13 +42,13 @@ function NewTaskForm(props) {
         <div>
           <label htmlFor="name">
             Nome:
-            <input type="text" name="name" onChange={handleChange} />
+            <input type="text" name="name" onChange={handleChange} value={newTask.name} />
           </label>
         </div>
         <div>
           <label htmlFor="status">
             Status:
-            <select name="status" id="new-task-status" onChange={handleChange}>
+            <select name="status" id="new-task-status" onChange={handleChange} value={newTask.status}>
               <option value="Pendente">Pendente</option>
               <option value="Em andamento">Em andamento</option>
               <option value="Pronto">Pronto</option>
