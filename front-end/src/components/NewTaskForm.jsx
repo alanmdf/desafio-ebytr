@@ -1,6 +1,8 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 
-function NewTaskForm() {
+function NewTaskForm(props) {
+  const { setReloadList } = props;
   const [newTask, setNewTask] = useState({
     name: '',
     status: 'Pendente',
@@ -29,6 +31,7 @@ function NewTaskForm() {
       },
     };
     await fetch('http://localhost:3001', initOptions);
+    setReloadList((prevState) => !prevState);
   };
 
   return (

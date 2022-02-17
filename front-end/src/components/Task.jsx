@@ -1,23 +1,21 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-function Task({ taskInfo }) {
-  const [tasksValues, setTasksValues] = useState([]);
+function Task(props) {
+  const { taskInfo } = props;
+  const { setReloadList } = props;
   const handleClick = async (id) => {
     const initOptions = {
       method: 'DELETE',
     };
     await fetch(`http://localhost:3001/${id}`, initOptions);
+    setReloadList((prevState) => !prevState);
   };
-
-  useEffect(() => {
-    setTasksValues(Object.values(taskInfo));
-  }, []);
 
   return (
     <tr className="task">
-      {tasksValues
+      {Object.values(taskInfo)
         .filter((info) => info !== taskInfo._id)
         .map((info) => <td key={Math.random()}>{info}</td>)}
       <td>
