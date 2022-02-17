@@ -5,7 +5,7 @@ module.exports = async (id, { name, status }) => {
     const conn = await connection();
     const { modifiedCount } = await conn.collection('tasks').updateOne(
         { _id: ObjectId(id) },
-        { $set: { name, status, updatedAt: new Date().toISOString() } },
+        { $set: { name, status } },
     );
 
     return modifiedCount;
