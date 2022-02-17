@@ -4,7 +4,7 @@
 
 A empresa Ebytr está passando por problemas de produtividade/controle porque as pessoas colaboradoras vêm tendo dificuldade na organização de suas tarefas individuais. Por esse motivo, a diretora de produto Carolina Bigonha decidiu implantar uma nova forma de organizar as tarefas.
 
-Na Ebytr o time de desenvolvimento utiliza a Stack MERN para criar suas aplicações. Foi combinado com a Ebytr que você utilizará essa mesma Stack para resolver o problema de organização e produtividade da empresa.
+Na Ebytr o time de desenvolvimento utiliza a Stack MERN para criar suas aplicações. Foi combinado com a Ebytr que deverá ser utilizada essa mesma Stack para resolver o problema de organização e produtividade da empresa.
 
 ## Funcionalidades implementadas
 
@@ -54,46 +54,42 @@ Requisitos necessários para funcionamento adequado da aplicação:
     - Versão LTS do Node: v16.14.0
     - Versão do GIT: 2.25.1
 
-Clone o repositório no seu ambiente:
+1. Clone o repositório no seu ambiente:
 
-- Se possuir chave SSH configurada:
+   - Se possuir chave SSH configurada: `git clone git@github.com:alanmdf/desafio-ebytr.git`
 
-    `git clone git@github.com:alanmdf/desafio-ebytr.git`
+   - Se preferir utilizar o protocolo HTTPS: `git clone https://github.com/alanmdf/desafio-ebytr.git`
 
-- Se preferir utilizar o protocolo HTTPS:
+2. Acesse o diretório do projeto:
 
-    `git clone https://github.com/alanmdf/desafio-ebytr.git`
+   - `cd desafio-ebytr`
 
-Acesse o diretório do projeto:
+3. Acesse a pasta `back-end` e instale as dependências do back-end do projeto:
 
-`cd desafio-ebytr`
+   - `cd back-end && npm install`
 
-Acesse a pasta `back-end` e instale as dependências do back-end do projeto:
+4. Crie um arquivo para configurar as variáveis de ambiente da aplicação:
 
-`cd back-end && npm install`
+   - `touch config.env`
 
-Crie um arquivo para configurar as variáveis de ambiente da aplicação:
-
-`touch config.env`
-
-Abra o arquivo `config.env` e insira as seguintes variávies de ambiente:
+5. Abra o arquivo `config.env` e insira as seguintes variávies de ambiente:
 
 ```
 ATLAS_URI=mongodb+srv://desafio:ebytr@alancluster.m3qll.mongodb.net/desafioEbytr?retryWrites=true&w=majority
 PORT=3001
 ```
 
-Inicie a aplicação do back-end:
+6. Inicie a aplicação do back-end:
 
-`npm start`
+   - `npm start`
 
-Volte para a pasta raiz do projeto e acesse a pasta `front-end`
+7. Volte para a pasta raiz do projeto e acesse a pasta `front-end`
 
-`cd .. && cd front-end`
+   - `cd .. && cd front-end`
 
-Instale as dependências do front-end do projeto e inicie a aplicação
+8. Instale as dependências do front-end do projeto e inicie a aplicação
 
-`npm install && npm start`
+   - `npm install && npm start`
 
 ## Testes
 
@@ -120,4 +116,5 @@ Durante o desenvolvimento da aplicação, tive a oportunidade de pesquisar e con
 
 - Desenvolvimento de Testes de Integração da API
 - Desenvolvimento de Testes Unitários e de Integração do Front-End
+- Conteinerização da aplicação (Docker) para facilitar a utilização em ambientes diversos
 - Estilização com CSS
