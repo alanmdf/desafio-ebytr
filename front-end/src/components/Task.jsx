@@ -1,21 +1,23 @@
-/* eslint-disable react/no-array-index-key */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-function Task({ taskInfo }) {
-  const handleClick = (id) => {
+function Task(props) {
+  const { taskInfo } = props;
+  const { setReloadList } = props;
+  const handleClick = async (id) => {
     const initOptions = {
       method: 'DELETE',
     };
-    fetch(`http://localhost:3001/${id}`, initOptions);
+    await fetch(`http://localhost:3001/${id}`, initOptions);
+    setReloadList((prevState) => !prevState);
   };
 
   return (
     <tr className="task">
       {Object.values(taskInfo)
         .filter((info) => info !== taskInfo._id)
-        .map((info, index) => <td key={index}>{info}</td>)}
+        .map((info) => <td key={Math.random()}>{info}</td>)}
       <td>
         <button type="button">Editar</button>
       </td>

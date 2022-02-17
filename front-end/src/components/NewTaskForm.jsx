@@ -1,6 +1,8 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 
-function NewTaskForm() {
+function NewTaskForm(props) {
+  const { setReloadList } = props;
   const [newTask, setNewTask] = useState({
     name: '',
     status: 'Pendente',
@@ -14,7 +16,7 @@ function NewTaskForm() {
     }));
   };
 
-  const handleClick = () => {
+  const handleClick = async () => {
     const getDate = new Date().toISOString();
     const { name, status } = newTask;
     const initOptions = {
@@ -28,7 +30,8 @@ function NewTaskForm() {
         'Content-type': 'application/json; charset=UTF-8',
       },
     };
-    fetch('http://localhost:3001', initOptions);
+    await fetch('http://localhost:3001', initOptions);
+    setReloadList((prevState) => !prevState);
   };
 
   return (
