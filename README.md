@@ -47,7 +47,11 @@ Conforme indicado, foi utilizada a Stack MERN para desenvolvimento da aplicaçã
 
 * MongoDB Atlas
 
-## Roteiro para execução do projeto
+## Aplicação em produção
+
+Para visualizar a aplicação em funcionamento, acesse o seguinte link: https://desafio-ebytr-front.herokuapp.com/
+
+## Roteiro para execução local do projeto
 
 Requisitos necessários para funcionamento adequado da aplicação:
 
@@ -111,6 +115,7 @@ Durante o desenvolvimento da aplicação, tive a oportunidade de pesquisar e con
 - Fetch: Utilização de segundo parâmetro para realizar requests de diferentes métodos HTTP.
 - Commits: Padronização e maior frequência dos commits. Acredito que ainda seja um ponto de melhoria.
 - TDD: Metodologia que tentei aplicar quando estava desenvolvendo o Back-end. Muito interessante as possibilidades que oferece.
+- Deploy com Heroku: Tive que encontrar uma solução para poder realizar o deploy de duas aplicações (front e back) que estão no mesmo repositório git. Após muita pesquisa consegui resolver este problema. Também tive que pesquisar sobre como liberar o acesso do Heroku ao MongoDB Atlas.
 
 ## Próximos passos
 
