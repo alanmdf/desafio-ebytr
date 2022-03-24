@@ -2,7 +2,7 @@
 const sinon = require('sinon');
 const { expect } = require('chai');
 const { MongoClient, ObjectId } = require('mongodb');
-const { getConnection } = require('./mongoMockConnection');
+const getConnection = require('./mongoMockConnection');
 
 const { createTaskModel } = require('../../models');
 
@@ -22,7 +22,6 @@ describe('Create Task Model: Add new task to the database', function () {
   });
 
   after(async function () {
-    await connectionMock.db('desafioEbytr').collection('tasks').drop();
     MongoClient.connect.restore();
   });
 

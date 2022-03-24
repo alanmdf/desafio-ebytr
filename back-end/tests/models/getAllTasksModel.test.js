@@ -1,7 +1,7 @@
 const sinon = require('sinon');
 const { expect } = require('chai');
 const { MongoClient } = require('mongodb');
-const { getConnection } = require('./mongoMockConnection');
+const getConnection = require('./mongoMockConnection');
 
 const { getAllTasksModel } = require('../../models');
 
